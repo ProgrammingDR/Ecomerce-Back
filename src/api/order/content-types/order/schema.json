@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "admin_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "admin::user"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "order"
+    },
+    "Total": {
+      "type": "decimal"
+    },
+    "Address": {
+      "type": "richtext"
+    },
+    "Status": {
+      "type": "enumeration",
+      "enum": [
+        "Pending",
+        "Processing",
+        "Shipped",
+        "Delivered"
+      ]
+    }
+  }
+}
